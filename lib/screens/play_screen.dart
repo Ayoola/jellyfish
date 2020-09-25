@@ -5,6 +5,7 @@ import 'package:jellyfish/soundscape_assets.dart';
 import 'package:jellyfish/sound_player.dart';
 import 'package:jellyfish/components/background_image.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlayScreen extends StatefulWidget {
   final List<SoundscapeAsset> soundscapeAssets = focusSoundscapeAssets;
@@ -82,7 +83,11 @@ class _PlayScreenState extends State<PlayScreen> {
               child: FlatButton(
                 onPressed: () => toggleSound(currentSoundscape.soundPath),
                 child: SafeArea(
-                  child: Container(),
+                  child: Center(
+                      child: isPlaying == false
+                          ? FaIcon(FontAwesomeIcons.play,
+                              size: 100.0, color: Colors.white70)
+                          : Container()),
                 ),
               ),
             ),

@@ -28,6 +28,7 @@ dependencies:
   assets_audio_player: ^2.0.10
   tiktoklikescroller: ^0.1.1
   visibility_detector: ^0.1.5
+  font_awesome_flutter: ^8.8.1
 
 dev_dependencies:
   flutter_test:
