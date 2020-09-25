@@ -16,6 +16,7 @@ class PlayScreen extends StatefulWidget {
 class _PlayScreenState extends State<PlayScreen> {
   SoundPlayer player = new SoundPlayer();
   bool isPlaying = false;
+  String appbarLabel = '';
 
   Future<void> playSound(String soundPath) async {
     await player.play(soundPath);
@@ -45,6 +46,12 @@ class _PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text(appbarLabel),
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+      ),
       backgroundColor: Colors.transparent,
       body: TikTokStyleFullPageScroller(
         contentSize: widget.soundscapeAssets.length,
@@ -53,11 +60,16 @@ class _PlayScreenState extends State<PlayScreen> {
         animationDuration: const Duration(milliseconds: 300),
         builder: (BuildContext context, int index) {
           SoundscapeAsset currentSoundscape = widget.soundscapeAssets[index];
+
           return VisibilityDetector(
             key: Key(currentSoundscape.imagePath),
             onVisibilityChanged: (visibilityInfo) {
-              if (visibilityInfo.visibleFraction == 1)
+              if (visibilityInfo.visibleFraction == 1) {
                 playSound(currentSoundscape.soundPath);
+                setState(() {
+                  this.appbarLabel = currentSoundscape.title;
+                });
+              }
             },
             child: BackgroundImage(
               image: AssetImage(currentSoundscape.imagePath),
