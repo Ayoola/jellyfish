@@ -20,17 +20,23 @@ class _PlayScreenState extends State<PlayScreen> {
 
   Future<void> playSound(String soundPath) async {
     await player.play(soundPath);
-    isPlaying = true;
+    setState(() {
+      isPlaying = true;
+    });
   }
 
   Future<void> pauseSound() async {
     await player.pause();
-    isPlaying = false;
+    setState(() {
+      isPlaying = false;
+    });
   }
 
   Future<void> stopSound() async {
     await player.stop();
-    isPlaying = false;
+    setState(() {
+      isPlaying = false;
+    });
   }
 
   Future<void> toggleSound(String soundPath) async {
