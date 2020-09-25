@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 100),
                 HomeScreenButton(label: 'Focus'),
+                SizedBox(height: 10),
                 HomeScreenButton(label: 'Sleep'),
                 SizedBox(height: 100),
               ],
