@@ -4,7 +4,8 @@ class SoundPlayer {
   final player = AssetsAudioPlayer();
 
   Future<void> play(String path) async {
-    await player.open(Audio(path), autoStart: true, showNotification: true);
+    await player.open(Audio(path),
+        autoStart: true, showNotification: true, loopMode: LoopMode.single);
     //await player.play();
   }
 
