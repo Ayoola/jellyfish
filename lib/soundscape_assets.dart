@@ -2,6 +2,10 @@ import 'components/soundscape_asset.dart';
 
 final List<SoundscapeAsset> focusSoundscapeAssets = <SoundscapeAsset>[
   SoundscapeAsset(
+      title: 'test',
+      imagePath: 'assets/graphics/star.gif',
+      soundPath: 'assets/sounds/synth.wav'),
+  SoundscapeAsset(
       title: 'drizzle',
       imagePath: 'assets/graphics/drizzle.gif',
       soundPath: 'assets/sounds/drizzle.mp3'),
