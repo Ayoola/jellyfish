@@ -5,8 +5,10 @@ class SoundPlayer {
 
   Future<void> play(String path) async {
     await player.open(Audio(path),
-        autoStart: true, showNotification: true, loopMode: LoopMode.single);
-    //await player.play();
+        autoStart: true,
+        showNotification: true,
+        playInBackground: PlayInBackground.enabled,
+        loopMode: LoopMode.single);
   }
 
   Future<void> pause() async {
